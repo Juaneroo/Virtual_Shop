@@ -1,0 +1,28 @@
+{% extends 'layouts/tienda.html' %}{% load static %} {% block content %}
+
+<div class="min-vh-100 d-flex flex-colum py-2">
+    <div class="container">
+        <h3 class="animate__animated animate__bounceInDown animate__delay-0.3s text-center py-4">TECNOALEGRÍA</h3>
+        <div class="row py-auto">
+            <div class="col-lg-8">
+                <p class="animate__animated animate__backInRight animate__delay-0.3s text-justify">
+                    Somos una empresa importadora de tecnología radicada en Colombia, ofrecemos muchos electrodomesticos y todo lo necesario para el hogar.
+                </p>
+                <p class="animate__animated animate__backInRight animate__delay-0.3s text-justify">
+                    Nuestra competencia es con nosotros mismos, buscamos cada dia ser mucho mejores y poder crecer de una manera extraordinaria, todo esto gracias a ustedes nuestros clientes.
+                </p>
+            </div>
+
+            <div class="col-lg-4 animate__animated animate__bounceInUp animate__delay-0.4s ">
+                <img class="img-fluid ml-auto" src="{% static 'assets/team.jpg' %}" alt="team">
+            </div>
+
+        </div>
+        <div class="row animate__animated animate__bounceInUp animate__delay-1s">
+            <p class="mb-1">Teléfono: +57 3006008001</p>
+            <p> Medellín, Colombia</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
