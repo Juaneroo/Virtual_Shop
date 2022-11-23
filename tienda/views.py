@@ -12,6 +12,9 @@ from django.views.generic import ListView, CreateView
 from django.db.models import Q
 from .forms import ConctactoForm, ProductoForm, CategoriaForm, CustomUserCreationForm
 
+from django.conf import settings
+from django.core.mail import EmailMultiAlternatives
+
 
 # Create your views here.
 def index(request):
@@ -264,8 +267,30 @@ def cleancart(request):
     return redirect(to="/viewcart")
 
 
-def procesar_compra(request):
-    messages.success(request, 'Gracias por su Compra! Recibira un correo electronico de confirmación. ')
+def procesar_compra(request):  
     carro = Carro(request)
     carro.limpiar_carro()
-    return redirect('/')
+    return render(request, 'carrito/checkout.html')
+
+def confirmar_info(request):
+    carro = Carro(request)
+    carro.limpiar_carro()
+    messages.success(request, 'Gracias por su Compra! Recibira un correo electronico de confirmación. ')
+    return redirect('index.html')
+
+
+def send_user_mail(user):
+    subject = 'Titulo del correo'
+    template = ('templates/mi_template_correo.html')
+
+    content = template.render({
+        'user': user,
+    })
+
+    message = EmailMultiAlternatives
+    (subject, #Titulo                                   
+    settings.EMAIL_HOST_USER, #Remitente
+    [user.email]) #Destinatario
+
+    message.attach_alternative(content, 'text/html')
+    message.send()

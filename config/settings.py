@@ -105,7 +105,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'es-es'
 
-TIME_ZONE = 'Bogotá (GMT-5)'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -148,3 +148,9 @@ import os
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # SESSION_SAVE_EVERY_REQUEST = True
+
+EMAIL_HOST = 'smtp.googlemail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = ('juaneritoo@gmail.com')
+EMAIL_HOST_PASSWORD = ('Juan159753')
+EMAIL_USE_TLS = True

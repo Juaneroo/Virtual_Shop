@@ -40,5 +40,7 @@ urlpatterns = [
     path('cleancart/', views.cleancart, name="cleancart"),
 
     path('procesar_compra/', views.procesar_compra, name="procesar_compra"),
+
+    path('confirmar_info/', views.confirmar_info, name="confirmar_info"),
     
 ]
